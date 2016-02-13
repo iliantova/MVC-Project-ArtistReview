@@ -63,6 +63,7 @@
     <Compile Include="Calendar.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Event.cs" />
+    <Compile Include="Image.cs" />
     <Compile Include="Joke.cs" />
     <Compile Include="JokeCategory.cs" />
     <Compile Include="Picture.cs" />

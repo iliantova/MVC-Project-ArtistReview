@@ -8,12 +8,12 @@
 
     public class SeedUsers
     {
-        public static List<ApplicationUser> Students;
+        public static List<ApplicationUser> Users;
         public static ApplicationUser Admin;
 
         public static void SeedDbUsers(ApplicationDbContext context)
         {
-            Students = new List<ApplicationUser>();
+            Users = new List<ApplicationUser>();
 
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
@@ -51,12 +51,13 @@
                     SecurityStamp = Guid.NewGuid().ToString("D"),
                     FirstName = "FirstName" + i,
                     LastName = "LastName" + i,
-                    Email = "user" + i + "@artist.com"
+                    Email = "user" + i + "@artist.com",
+                    PictureId = 1
                 };
 
-                userManager.Create(admin);
+                userManager.Create(user);
                 userManager.AddToRole(admin.Id, "User");
-                Students.Add(user);
+                Users.Add(user);
             }
         }
     }

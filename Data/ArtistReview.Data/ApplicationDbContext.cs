@@ -16,6 +16,16 @@
 
         public IDbSet<Joke> Jokes { get; set; }
 
+        public IDbSet<Profil> Profils { get; set; }
+
+        public IDbSet<Category> Categories { get; set; }
+
+        public IDbSet<Calendar> Calendars { get; set; }
+
+        public IDbSet<Picture> Pictures { get; set; }
+
+        public IDbSet<Event> Events { get; set; }
+
         public IDbSet<JokeCategory> JokesCategories { get; set; }
 
         public static ApplicationDbContext Create()
@@ -39,6 +49,7 @@
             modelBuilder.Entity<Calendar>()
                 .HasKey(x => x.Id);
 
+
             modelBuilder.Entity<ApplicationUser>()
                 .HasOptional(y => y.Profil)
                 .WithRequired(x => x.User);
@@ -51,6 +62,22 @@
              .HasOptional(c => c.Picture)
              .WithOptionalPrincipal()
              .WillCascadeOnDelete(false);
+
+            //modelBuilder.Entity<ApplicationUser>()
+            // .HasOptional(c => c.Picture)
+            // .WithOptionalPrincipal(y => y.User)
+            // .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Event>()
+             .HasOptional(c => c.Picture)
+             .WithOptionalPrincipal()
+             .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Profil>()
+             .HasOptional(c => c.Pictures)
+             .WithOptionalPrincipal()
+             .WillCascadeOnDelete(false);
+
         }
 
         private void ApplyAuditInfoRules()

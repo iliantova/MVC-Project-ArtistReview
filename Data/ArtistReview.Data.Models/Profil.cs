@@ -10,6 +10,7 @@
         public Profil()
         {
             this.Pictures = new HashSet<Picture>();
+            this.Images = new HashSet<Image>();
         }
 
         [Required]
@@ -27,5 +28,7 @@
         public virtual ApplicationUser User { get; set; }
 
         public virtual ICollection<Picture> Pictures { get; set; }
+
+        public virtual ICollection<Image> Images { get; set; }
     }
 }

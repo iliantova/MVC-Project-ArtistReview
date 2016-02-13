@@ -31,6 +31,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtistReview.Web.Controller
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtistReview.Web.Routes.Tests", "Tests\ArtistReview.Web.Routes.Tests\ArtistReview.Web.Routes.Tests.csproj", "{C3A300EF-D136-4334-9211-466B9E699339}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Img", "Img", "{8C9481FB-7EF9-4D38-89F8-F9E6589BA0D6}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\picture.jpg = ..\..\picture.jpg
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -92,5 +97,6 @@ Global
 		{D0D962BD-363D-4A22-9DB1-53136CE8EBF4} = {0C12FAF3-85BC-43E1-ABB2-6799213942CB}
 		{7C55353F-CB74-4E8E-B272-42DA1C9C2194} = {0C12FAF3-85BC-43E1-ABB2-6799213942CB}
 		{C3A300EF-D136-4334-9211-466B9E699339} = {0C12FAF3-85BC-43E1-ABB2-6799213942CB}
+		{8C9481FB-7EF9-4D38-89F8-F9E6589BA0D6} = {8103CD5B-2A92-401C-A854-A31E0FD44DE6}
 	EndGlobalSection
 EndGlobal

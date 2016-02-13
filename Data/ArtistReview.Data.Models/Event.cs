@@ -18,8 +18,12 @@
 
         public int PictureId { get; set; }
 
-        [ForeignKey("PictureId")]
         public virtual Picture Picture { get; set; }
+
+        public int ImageId { get; set; }
+
+        [ForeignKey("ImageId")]
+        public virtual Image Image { get; set; }
 
         [Required]
         public DateTime BeginEvent { get; set; }
