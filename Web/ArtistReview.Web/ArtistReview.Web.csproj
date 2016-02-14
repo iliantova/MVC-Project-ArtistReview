@@ -230,6 +230,28 @@
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\ArtImg\art1.jpg" />
+    <Content Include="Assets\ArtImg\art10.jpg" />
+    <Content Include="Assets\ArtImg\art11.jpg" />
+    <Content Include="Assets\ArtImg\art12.jpg" />
+    <Content Include="Assets\ArtImg\art13.jpg" />
+    <Content Include="Assets\ArtImg\art2.jpg" />
+    <Content Include="Assets\ArtImg\art3.jpg" />
+    <Content Include="Assets\ArtImg\art4.jpg" />
+    <Content Include="Assets\ArtImg\art5.jpg" />
+    <Content Include="Assets\ArtImg\art6.jpg" />
+    <Content Include="Assets\ArtImg\art7.jpg" />
+    <Content Include="Assets\ArtImg\art8.jpg" />
+    <Content Include="Assets\ArtImg\art9.jpg" />
+    <Content Include="Assets\Img\images1.jpg" />
+    <Content Include="Assets\Img\images2.jpg" />
+    <Content Include="Assets\Img\images3.jpg" />
+    <Content Include="Assets\Img\images4.jpg" />
+    <Content Include="Assets\Img\images5.jpg" />
+    <Content Include="Assets\Img\images6.jpg" />
+    <Content Include="Assets\Img\images7.jpg" />
+    <Content Include="Assets\Img\images8.jpg" />
+    <Content Include="Assets\UserImg\userimage.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />

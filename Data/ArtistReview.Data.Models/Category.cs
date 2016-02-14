@@ -12,19 +12,19 @@
             this.Profils = new HashSet<Profil>();
         }
 
-        [Required]
+       // [Required]
         [MinLength(3)]
         [MaxLength(50)]
         public string Name { get; set; }
 
-        [Required]
+       // [Required]
         [MinLength(3)]
         [MaxLength(500)]
         public string Description { get; set; }
 
-        public int PictureId { get; set; }
+        //public int ImageId { get; set; }
 
-        public virtual Picture Picture { get; set; }
+        public virtual Image Image { get; set; }
 
         public virtual ICollection<Event> Events { get; set; }
 

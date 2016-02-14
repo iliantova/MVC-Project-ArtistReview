@@ -12,6 +12,7 @@
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+
         }
 
         public IDbSet<Joke> Jokes { get; set; }
@@ -22,9 +23,9 @@
 
         public IDbSet<Calendar> Calendars { get; set; }
 
-        public IDbSet<Picture> Pictures { get; set; }
-
         public IDbSet<Event> Events { get; set; }
+
+        public IDbSet<Image> Images { get; set; }
 
         public IDbSet<JokeCategory> JokesCategories { get; set; }
 
@@ -58,26 +59,25 @@
                 .HasRequired(y => y.Calendar)
                 .WithRequiredPrincipal(y => y.User);
 
-            modelBuilder.Entity<Category>()
-             .HasOptional(c => c.Picture)
-             .WithOptionalPrincipal()
-             .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Category>()
+            //      .HasOptional(c => c.Image)
+            //      .WithMany()
+            //      .WillCascadeOnDelete(false);
 
-            //modelBuilder.Entity<ApplicationUser>()
-            // .HasOptional(c => c.Picture)
-            // .WithOptionalPrincipal(y => y.User)
-            // .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Image>()
+            //     .HasOptional(c => c.Category)
+            //     .WithOptionalPrincipal()
+            //     .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Event>()
-             .HasOptional(c => c.Picture)
-             .WithOptionalPrincipal()
-             .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Image>()
+            //     .HasOptional(c => c.Profils)
+            //     .WithOptionalPrincipal()
+            //     .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Profil>()
-             .HasOptional(c => c.Pictures)
-             .WithOptionalPrincipal()
-             .WillCascadeOnDelete(false);
-
+            //modelBuilder.Entity<Image>()
+            //     .HasOptional(c => c.Events)
+            //     .WithOptionalPrincipal()
+            //     .WillCascadeOnDelete(false);
         }
 
         private void ApplyAuditInfoRules()

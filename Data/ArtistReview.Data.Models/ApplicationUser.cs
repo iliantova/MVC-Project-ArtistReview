@@ -26,15 +26,9 @@
         [Range(0, 120)]
         public int Age { get; set; }
 
+        //public int ImageId { get; set; }
 
-        public int PictureId { get; set; }
-
-        public virtual Picture Picture { get; set; }
-
-       
-        public int ImageId { get; set; }
-
-        [ForeignKey ("ImageId")]
+        //[ForeignKey("ImageId")]
         public virtual Image Images { get; set; }
 
         // [ForeignKey("Profil")]

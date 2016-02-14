@@ -2,33 +2,30 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
-    using Common.Models;
     using System.ComponentModel.DataAnnotations.Schema;
+    using Common.Models;
+
     public class Event : BaseModel<int>
     {
-        [Required]
+        //[Required]
         [MinLength(3)]
         [MaxLength(50)]
         public string Name { get; set; }
 
-        [Required]
+        //[Required]
         [MinLength(3)]
         [MaxLength(500)]
         public string Description { get; set; }
-
-        public int PictureId { get; set; }
-
-        public virtual Picture Picture { get; set; }
 
         public int ImageId { get; set; }
 
         [ForeignKey("ImageId")]
         public virtual Image Image { get; set; }
 
-        [Required]
-        public DateTime BeginEvent { get; set; }
+        //[Required]
+        public DateTime? BeginEvent { get; set; }
 
-        public DateTime EndEvets { get; set; }
+        public DateTime? EndEvent { get; set; }
 
         public int CategoryId { get; set; }
 

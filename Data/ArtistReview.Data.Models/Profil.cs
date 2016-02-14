@@ -9,25 +9,28 @@
     {
         public Profil()
         {
-            this.Pictures = new HashSet<Picture>();
             this.Images = new HashSet<Image>();
         }
 
-        [Required]
+       // [Required]
         [MinLength(3)]
         [MaxLength(2000)]
         public string Description { get; set; }
+
+        public string Sait { get; set; }
+
+        public string FaceBook { get; set; }
+
+        public string Contact { get; set; }
 
         public int CategoryId { get; set; }
 
         public virtual Category Category { get; set; }
 
         [Key, ForeignKey("User")]
-        public new string Id { get; set; }
+        public string Id { get; set; }
 
         public virtual ApplicationUser User { get; set; }
-
-        public virtual ICollection<Picture> Pictures { get; set; }
 
         public virtual ICollection<Image> Images { get; set; }
     }

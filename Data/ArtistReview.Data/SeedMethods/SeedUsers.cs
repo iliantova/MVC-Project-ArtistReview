@@ -1,4 +1,4 @@
-﻿namespace ArtistReview.Data.Common.SeedMethods
+﻿namespace ArtistReview.Data.SeedMethods
 {
     using System;
     using System.Collections.Generic;
@@ -11,7 +11,7 @@
         public static List<ApplicationUser> Users;
         public static ApplicationUser Admin;
 
-        public static void SeedDbUsers(ApplicationDbContext context)
+        public static void SeedDbUsers(ApplicationDbContext context, List<Image> userImages)
         {
             Users = new List<ApplicationUser>();
 
@@ -52,12 +52,37 @@
                     FirstName = "FirstName" + i,
                     LastName = "LastName" + i,
                     Email = "user" + i + "@artist.com",
-                    PictureId = 1
+                    Images = userImages[0]
                 };
 
                 userManager.Create(user);
                 userManager.AddToRole(admin.Id, "User");
                 Users.Add(user);
+            }
+        }
+
+        public static void SeedDbProfil(ApplicationDbContext context, List<Image> artImg, List<Category> listCategory, List<ApplicationUser> userList)
+        {
+            Random rnd = new Random();
+
+            for (int i = 0; i < userList.Count; i++)
+            {
+                var profil = new Profil()
+                {
+                    Description = "ArtistReview Profils",
+                    Category = listCategory[rnd.Next(0, listCategory.Count)],
+                    User = userList[i],
+                    Contact = "Telerik Academy",
+                    Sait = "http://telerikacademy.com/",
+                    FaceBook = "https://www.facebook.com/TelerikAcademy/?fref=ts"
+                };
+                for (int j = 0; j < 5; j++)
+                {
+                    profil.Images.Add(artImg[rnd.Next(0, artImg.Count)]);
+                }
+
+                context.Profils.Add(profil);
+                context.SaveChanges();
             }
         }
     }
