@@ -6,8 +6,10 @@
 
     public interface ICategoriesService
     {
-        IQueryable<JokeCategory> GetAll();
+        IQueryable<Category> GetAll();
 
-        JokeCategory EnsureCategory(string name);
+        Category EditCategory(string name, string descriptions, Image picture);
+
+        Category GetById(int id);
     }
 }

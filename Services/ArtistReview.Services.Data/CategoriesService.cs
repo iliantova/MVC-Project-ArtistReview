@@ -1,5 +1,6 @@
 ﻿namespace ArtistReview.Services.Data
 {
+    using System;
     using System.Linq;
 
     using ArtistReview.Data.Common;
@@ -7,14 +8,14 @@
 
     public class CategoriesService : ICategoriesService
     {
-        private readonly IDbRepository<JokeCategory> categories;
+        private readonly IDbRepository<Category> categories;
 
-        public CategoriesService(IDbRepository<JokeCategory> categories)
+        public CategoriesService(IDbRepository<Category> categories)
         {
             this.categories = categories;
         }
 
-        public JokeCategory EnsureCategory(string name)
+        public Category EditCategory(string name, string descriptions, Image picture)
         {
             var category = this.categories.All().FirstOrDefault(x => x.Name == name);
             if (category != null)
@@ -22,15 +23,24 @@
                 return category;
             }
 
-            category = new JokeCategory { Name = name };
+            category = new Category {
+                Name = name,
+                Description = descriptions,
+                Image = picture
+            };
             this.categories.Add(category);
             this.categories.Save();
             return category;
         }
 
-        public IQueryable<JokeCategory> GetAll()
+        public IQueryable<Category> GetAll()
         {
             return this.categories.All().OrderBy(x => x.Name);
+        }
+
+        public Category GetById(int id)
+        {
+            return this.categories.GetById(id);
         }
     }
 }

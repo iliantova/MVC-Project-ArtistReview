@@ -19,7 +19,13 @@
     @foreach (var category in Model.Categories)
     {
         <div class="col-md-2">
-            @category.Name
+            @Html.ActionLink(linkText: @category.Name, actionName: "Details", controllerName: "Categories", routeValues: new { id = category.Id }, htmlAttributes: null)
+
         </div>
+        <div class="col-md-2">
+            @category.Description
+            <img class="imageGalery" src="@Url.Content(@category.ImagePath)" style="width: 10em; height: 10em" />
+        </div>
+        
     }
 </div>

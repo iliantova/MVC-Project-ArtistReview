@@ -25,7 +25,7 @@
             var categories =
                 this.Cache.Get(
                     "categories",
-                    () => this.jokeCategories.GetAll().To<JokeCategoryViewModel>().ToList(),
+                    () => this.jokeCategories.GetAll().To<CategoryViewModel>().ToList(),
                     30 * 60);
             var viewModel = new IndexViewModel
             {
