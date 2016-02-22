@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ArtistReview.Web.ViewModels.Home;
+using ArtistReview.Web.ViewModels.Categories;
+using ArtistReview.Web.Infrastructure.Mapping;
 
 namespace ArtistReview.Web.Controllers
 {
@@ -23,11 +25,22 @@ namespace ArtistReview.Web.Controllers
             int categoryId;
             if (int.TryParse(id, out categoryId))
             {
-                var category = this.Mapper.Map<CategoryViewModel>(this.categories.GetById(categoryId));
+                var category = this.Mapper.Map<DetailsCategoryViewModel>(this.categories.GetById(categoryId));
                 return this.View(category);
             }
             
             return this.View("Error");
+        }
+
+        // GET: Categories
+        public ActionResult Index()
+        {
+            var category = this.categories.GetAll().To<DetailsCategoryViewModel>().ToList();
+            var viewModel = new CategoryViewModel
+            {
+                Categories = category
+            };
+            return this.View(viewModel);
         }
     }
 }

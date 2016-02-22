@@ -5,7 +5,7 @@
     using ArtistReview.Services.Data;
     using Infrastructure.Mapping;
     using ViewModels.Home;
-
+    using ViewModels.Categories;
     public class HomeController : BaseController
     {
         private readonly IJokesService jokes;
@@ -25,7 +25,7 @@
             var categories =
                 this.Cache.Get(
                     "categories",
-                    () => this.jokeCategories.GetAll().To<CategoryViewModel>().ToList(),
+                    () => this.jokeCategories.GetAll().To<DetailsCategoryViewModel>().ToList(),
                     30 * 60);
             var viewModel = new IndexViewModel
             {

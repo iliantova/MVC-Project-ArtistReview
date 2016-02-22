@@ -1,10 +1,10 @@
-﻿namespace ArtistReview.Web.ViewModels.Home
+﻿namespace ArtistReview.Web.ViewModels.Categories
 {
     using System;
     using ArtistReview.Data.Models;
     using ArtistReview.Web.Infrastructure.Mapping;
     using AutoMapper;
-    public class CategoryViewModel : IMapFrom<Category>, IHaveCustomMappings
+    public class DetailsCategoryViewModel : IMapFrom<Category>, IHaveCustomMappings
     {
         public int Id { get; set; }
 
@@ -16,7 +16,7 @@
 
         public void CreateMappings(IMapperConfiguration configuration)
         {
-            configuration.CreateMap<Category, CategoryViewModel>()
+            configuration.CreateMap<Category, DetailsCategoryViewModel>()
                 .ForMember(m => m.ImagePath, opt => opt.MapFrom(t => t.Image.ImagePath))
                 .ReverseMap();
         }
