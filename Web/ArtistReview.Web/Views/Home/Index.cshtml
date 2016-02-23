@@ -1,32 +1,55 @@
 ﻿@model ArtistReview.Web.ViewModels.Home.IndexViewModel
 @{
-    ViewBag.Title = "Home Page";
+	ViewBag.Title = "Home Page";
 }
+<div class="jumbotron">
+	<div class="row text-center">
+		<div class="well">
+			<h2>Categories</h2>
+		</div>
+		<div class="row">
+			@foreach (var category in Model.Categories)
+			{
+				<div class="col-md-3">
+					<div class="row">
+						<div class="col-md-2">
+							<h2><span class="label label-warnings"><a href="@Url.Action("Details", "Categories", new { id = category.Id })" class="speacial-a">@category.Name</a></span></h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-2">
+							@category.Description
+							<a href="@Url.Action("Details", "Categories", new { id = category.Id})"><img class="imageGalery img-rounded" src="@Url.Content(@category.ImagePath)" style="width: 10em; height: 10em" /></a>
+						</div>
+					</div>
+				</div>
+			}
+		</div>
 
-<h1>Вицове</h1>
-<div class="row">
-    @foreach (var joke in Model.Jokes)
-    {
-        <div class="col-md-4">
-            <a href="@joke.Url">
-                @Html.Raw(joke.Content.Replace("\n", "<br />"))
-            </a>
-            <div>@joke.Category</div>
-        </div>
-    }
+	</div>
 </div>
-<h1>Категории</h1>
-<div class="row">
-    @foreach (var category in Model.Categories)
-    {
-        <div class="col-md-2">
-            @Html.ActionLink(linkText: @category.Name, actionName: "Details", controllerName: "Categories", routeValues: new { id = category.Id }, htmlAttributes: null)
-
-        </div>
-        <div class="col-md-2">
-            @category.Description
-            <img class="imageGalery" src="@Url.Content(@category.ImagePath)" style="width: 10em; height: 10em" />
-        </div>
-        
-    }
+<div class="jumbotron">
+	<div class="row text-center">
+		<div class="well">
+			<h2>Profiles</h2>
+		</div>
+	</div>
+	<div class="row">
+		@foreach (var profile in Model.Profiles)
+		{
+			<div class="col-md-3">
+				<div class="row">
+					<div class="col-md-2">
+						<h2><span class="label label-warnings"><a href="@Url.Action("Details", "Profiles", new { id = profile.Id })" class="speacial-a">@profile.UserName</a></span></h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2">
+						@profile.Description
+						<a href="@Url.Action("Details", "Profiles", new { id = profile.Id})"><img class="imageGalery img-rounded" src="@Url.Content(@profile.ImageUrl)" style="width: 10em; height: 10em" /></a>
+					</div>
+				</div>
+			</div>
+		}
+	</div>
 </div>

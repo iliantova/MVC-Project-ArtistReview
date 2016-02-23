@@ -22,7 +22,7 @@
                 string name = Path.GetFileNameWithoutExtension(fileName); //getting file name without extension  
                 string myfile = fileName; //appending the name with id  
                                           // store the file inside ~/project folder(Img)  
-                var path = Path.Combine("~/Assets/Img", myfile);
+                var path = Path.Combine("/Assets/Img", myfile);
 
                 var picture = new Image()
                 {

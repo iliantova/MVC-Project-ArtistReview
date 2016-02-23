@@ -17,7 +17,7 @@
 
         public IDbSet<Joke> Jokes { get; set; }
 
-        public IDbSet<Profil> Profils { get; set; }
+        public IDbSet<Profile> Profiles { get; set; }
 
         public IDbSet<Category> Categories { get; set; }
 
@@ -43,41 +43,6 @@
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<Profil>()
-                .HasKey(x => x.Id);
-
-            modelBuilder.Entity<Calendar>()
-                .HasKey(x => x.Id);
-
-
-            modelBuilder.Entity<ApplicationUser>()
-                .HasOptional(y => y.Profil)
-                .WithRequired(x => x.User);
-
-            modelBuilder.Entity<ApplicationUser>()
-                .HasRequired(y => y.Calendar)
-                .WithRequiredPrincipal(y => y.User);
-
-            //modelBuilder.Entity<Category>()
-            //      .HasOptional(c => c.Image)
-            //      .WithMany()
-            //      .WillCascadeOnDelete(false);
-
-            //modelBuilder.Entity<Image>()
-            //     .HasOptional(c => c.Category)
-            //     .WithOptionalPrincipal()
-            //     .WillCascadeOnDelete(false);
-
-            //modelBuilder.Entity<Image>()
-            //     .HasOptional(c => c.Profils)
-            //     .WithOptionalPrincipal()
-            //     .WillCascadeOnDelete(false);
-
-            //modelBuilder.Entity<Image>()
-            //     .HasOptional(c => c.Events)
-            //     .WithOptionalPrincipal()
-            //     .WillCascadeOnDelete(false);
         }
 
         private void ApplyAuditInfoRules()

@@ -202,14 +202,18 @@
     <Compile Include="App_Start\SmsService.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administrator\AdministratorAreaRegistration.cs" />
+    <Compile Include="Areas\Administrator\Controllers\BaseController.cs" />
     <Compile Include="Areas\Administrator\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\Administrator\Models\Category\DetailsCategoryViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JokesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
+    <Compile Include="Controllers\ProfilesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -223,6 +227,7 @@
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
     <Compile Include="ViewModels\Categories\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\Profiles\DetailsProfileViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexViewModel.cs" />
     <Compile Include="ViewModels\Categories\DetailsCategoryViewModel.cs" />
     <Compile Include="ViewModels\Home\JokeViewModel.cs" />
@@ -236,6 +241,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\Profiles\ProfileViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\ArtImg\art1.jpg" />
@@ -285,6 +291,8 @@
     <Content Include="Areas\Administrator\Views\web.config" />
     <Content Include="Content\KendoUI\kendo.common.min.css.map" />
     <Content Include="Content\KendoUI\kendo.default.min.css.map" />
+    <Content Include="Areas\Administrator\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Administrator\Views\Categories\Index.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -350,14 +358,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administrator\Models\" />
-    <Folder Include="Areas\Administrator\Views\Categories\" />
     <Folder Include="Areas\Administrator\Views\Shared\" />
     <Folder Include="Content\KendoUI\Default\" />
     <Folder Include="Content\KendoUI\fonts\" />
     <Folder Include="Content\KendoUI\images\" />
     <Folder Include="Content\KendoUI\textures\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Events\" />
+    <Folder Include="Views\Profiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

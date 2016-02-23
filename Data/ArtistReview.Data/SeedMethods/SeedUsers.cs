@@ -67,13 +67,13 @@
 
             for (int i = 0; i < userList.Count; i++)
             {
-                var profil = new Profil()
+                var profil = new Profile()
                 {
                     Description = "ArtistReview Profils",
                     Category = listCategory[rnd.Next(0, listCategory.Count)],
                     User = userList[i],
                     Contact = "Telerik Academy",
-                    Sait = "http://telerikacademy.com/",
+                    Site = "http://telerikacademy.com/",
                     FaceBook = "https://www.facebook.com/TelerikAcademy/?fref=ts"
                 };
                 for (int j = 0; j < 5; j++)
@@ -81,7 +81,7 @@
                     profil.Images.Add(artImg[rnd.Next(0, artImg.Count)]);
                 }
 
-                context.Profils.Add(profil);
+                context.Profiles.Add(profil);
                 context.SaveChanges();
             }
         }

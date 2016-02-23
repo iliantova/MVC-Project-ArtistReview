@@ -12,7 +12,7 @@
         public Image()
         {
             this.Users = new HashSet<ApplicationUser>();
-            this.Profils = new HashSet<Profil>();
+            this.Profils = new HashSet<Profile>();
             this.Events = new HashSet<Event>();
             this.Category = new HashSet<Category>();
         }
@@ -23,7 +23,7 @@
 
         public virtual ICollection<ApplicationUser> Users { get; set; }
 
-        public virtual ICollection<Profil> Profils { get; set; }
+        public virtual ICollection<Profile> Profils { get; set; }
 
         public virtual ICollection<Event> Events { get; set; }
 

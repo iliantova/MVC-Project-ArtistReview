@@ -1,6 +1,6 @@
 ﻿namespace ArtistReview.Data.Models
 {
-    using System.Collections.Generic;    // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Security.Claims;
@@ -13,6 +13,8 @@
         public ApplicationUser()
         {
             this.Events = new HashSet<Event>();
+            this.Profil = new HashSet<Profile>();
+            this.Calendar = new HashSet<Calendar>();
         }
 
         [MinLength(2)]
@@ -26,18 +28,12 @@
         [Range(0, 120)]
         public int Age { get; set; }
 
-        //public int ImageId { get; set; }
+         public virtual Image Images { get; set; }
 
-        //[ForeignKey("ImageId")]
-        public virtual Image Images { get; set; }
 
-        // [ForeignKey("Profil")]
-        // public int ProfilId { get; set; }
-        public virtual Profil Profil { get; set; }
+        public virtual ICollection<Calendar> Calendar { get; set; }
 
-        // [ForeignKey("Calendar")]
-        // public int CalendarId { get; set; }
-        public virtual Calendar Calendar { get; set; }
+        public virtual ICollection<Profile> Profil { get; set; }
 
         public virtual ICollection<Event> Events { get; set; }
 

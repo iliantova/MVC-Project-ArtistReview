@@ -1,4 +1,4 @@
-﻿namespace ArtistReview.Web.ViewModels.Categories
+﻿namespace ArtistReview.Web.Areas.Administrator.Models.Category
 {
     using System;
     using ArtistReview.Data.Models;

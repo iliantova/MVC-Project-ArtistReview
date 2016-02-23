@@ -9,6 +9,12 @@
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(
+               name: "CategoriesList",
+               url: "Categories/Details/{id}",
+               defaults: new { controller = "Categories", action = "Details", id = UrlParameter.Optional },
+               namespaces: new[] { "ArtistReview.Web.Controllers" });
+
+            routes.MapRoute(
                 name: "JokePage",
                 url: "Joke/{id}",
                 defaults: new { controller = "Jokes", action = "ById" });

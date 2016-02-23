@@ -5,9 +5,9 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using Common.Models;
 
-    public class Profil : BaseModel<string>
+    public class Profile : BaseModel<int>
     {
-        public Profil()
+        public Profile()
         {
             this.Images = new HashSet<Image>();
         }
@@ -17,7 +17,7 @@
         [MaxLength(2000)]
         public string Description { get; set; }
 
-        public string Sait { get; set; }
+        public string Site { get; set; }
 
         public string FaceBook { get; set; }
 
@@ -27,8 +27,7 @@
 
         public virtual Category Category { get; set; }
 
-        [Key, ForeignKey("User")]
-        public string Id { get; set; }
+        public string UserId { get; set; }
 
         public virtual ApplicationUser User { get; set; }
 

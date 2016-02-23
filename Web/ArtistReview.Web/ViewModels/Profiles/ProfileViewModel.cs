@@ -1,4 +1,4 @@
-﻿namespace ArtistReview.Web.ViewModels.Categories
+﻿namespace ArtistReview.Web.ViewModels.Profiles
 {
     using System;
     using System.Collections.Generic;
@@ -6,8 +6,8 @@
     using System.Web;
     using ArtistReview.Web.ViewModels.Categories;
 
-    public class CategoryViewModel
+    public class ProfileViewModel
     {
-        public IEnumerable<DetailsCategoryViewModel> Categories { get; set; }
+        public IEnumerable<DetailsProfileViewModel> Profiles { get; set; }
     }
 }

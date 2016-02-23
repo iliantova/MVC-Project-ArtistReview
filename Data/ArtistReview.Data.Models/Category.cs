@@ -9,7 +9,7 @@
         public Category()
         {
             this.Events = new HashSet<Event>();
-            this.Profils = new HashSet<Profil>();
+            this.Profils = new HashSet<Profile>();
         }
 
        // [Required]
@@ -28,6 +28,6 @@
 
         public virtual ICollection<Event> Events { get; set; }
 
-        public virtual ICollection<Profil> Profils { get; set; }
+        public virtual ICollection<Profile> Profils { get; set; }
     }
 }

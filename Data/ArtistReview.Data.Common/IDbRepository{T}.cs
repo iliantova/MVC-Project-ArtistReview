@@ -1,7 +1,6 @@
 ﻿namespace ArtistReview.Data.Common
 {
     using System.Linq;
-
     using ArtistReview.Data.Common.Models;
 
     public interface IDbRepository<T> : IDbRepository<T, int>
