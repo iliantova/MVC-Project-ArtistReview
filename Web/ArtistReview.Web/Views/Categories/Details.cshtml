@@ -1,37 +1,73 @@
-﻿@model ArtistReview.Web.ViewModels.Categories.DetailsCategoryViewModel
+﻿@model ArtistReview.Web.ViewModels.Categories.CurrentCategoryViewModel
 
 @{
     ViewBag.Title = "Details";
 }
 <div class="row well">
 	<div class="col-md-2">
-		<img class="imageGalery" src="@Url.Content(Model.ImagePath)" style="width: 10em; height: 10em" />
+		<img class="imageGalery" src="@Url.Content(Model.Category.ImagePath)" style="width: 10em; height: 10em" />
 	</div>
 	<div class="col-md-6">
 		<div class="row">
-			@Html.DisplayNameFor(model => model.Name)
+			@Html.DisplayNameFor(model => model.Category.Name)
 		</div>
 		<div class="row">
-			@Html.DisplayFor(model => model.Name)
+			@Html.DisplayFor(model => model.Category.Name)
 		</div>
 		<div class="row">
-			@Html.DisplayNameFor(model => model.Description)
+			@Html.DisplayNameFor(model => model.Category.Description)
 		</div>
 		<div class="row">
-			@Html.DisplayFor(model => model.Description)
+			@Html.DisplayFor(model => model.Category.Description)
 		</div>
 	</div>
 </div>
 <div class="jumbotron">
-	<div class="well text-center">
-		<h2>Profiles</h2>
-	</div>
+    <div class="row text-center">
+        <div class="well">
+            <h2>Profiles</h2>
+        </div>
+    </div>
+    <div class="row">
+        @foreach (var profile in Model.Profiles)
+        {
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-2">
+                        <h2><span class="label label-warnings"><a href="@Url.Action("Details", "Profiles", new { id = profile.Id })" class="speacial-a">@profile.UserName</a></span></h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        @profile.Description
+                        <a href="@Url.Action("Details", "Profiles", new { id = profile.Id})"><img class="imageGalery img-rounded" src="@Url.Content(@profile.ImageUrl)" style="width: 10em; height: 10em" /></a>
+                    </div>
+                </div>
+            </div>}
+    </div>
 </div>
 
 <div class="jumbotron">
-	<div class="well text-center">
-		<h2>Events</h2>
-	</div>
-</div>
-<div class="row">
+    <div class="well text-center">
+        <h2>Events</h2>
+    </div>
+
+    <div class="row">
+        @foreach (var events in Model.Events)
+        {
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-2">
+                        <h2><span class="label label-warnings"><a href="@Url.Action("Details", "Events", new { id = events.Id })" class="speacial-a">@events.Name </a></span></h2>
+                        <h3><label class="label label-info">@events.BeginEvent</label></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    @events.Description
+                    <a href="@Url.Action("Details", "Events", new { id = events.Id})"><img class="imageGalery img-rounded" src="@Url.Content(@events.ImageUrl)" style="width: 10em; height: 10em" /></a>
+                </div>
+            </div>
+        </div>}
+    </div>
 </div>

@@ -22,5 +22,11 @@ namespace ArtistReview.Services.Data
         {
             return profiles.GetById(id);
         }
+
+        public IQueryable<Profile> GetByCategory(int id)
+        {
+            return profiles.All().Where(x => x.CategoryId == id);
+        }
+        
     }
 }

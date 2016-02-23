@@ -21,9 +21,12 @@
 
         public ActionResult Index()
         {
-            var profiles = this.profiles.GetAll().To<DetailsProfileViewModel>().ToList();
-           
-            return null;
+            var profile = this.profiles.GetAll().To<DetailsProfileViewModel>().ToList();
+            var viewModel = new ProfileViewModel
+            {
+                Profiles = profile
+            };
+            return this.View(viewModel);
         }
     }
 }

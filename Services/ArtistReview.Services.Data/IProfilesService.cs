@@ -8,5 +8,7 @@ namespace ArtistReview.Services.Data
         IQueryable<Profile> GetAll();
 
         Profile GetById(int id);
+
+        IQueryable<Profile> GetByCategory(int id);
     }
 }

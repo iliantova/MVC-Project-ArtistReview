@@ -3,24 +3,29 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<div class="row">
-    @if (User.IsInRole("Administrator"))
-    {
-
-    }
-
-    @foreach (var category in Model.Categories)
-    {
-        <div class="col-md-2">
-            @Html.ActionLink(linkText: @category.Name, actionName: "Details", controllerName: "Categories", routeValues: new { id = category.Id }, htmlAttributes: null)
+<div class="jumbotron">
+    <div class="row text-center">
+        <div class="well">
+            <h2>Categories</h2>
         </div>
-        <div class="col-md-2">
-            @category.Description
-            <img class="imageGalery" src="@Url.Content(@category.ImagePath)" style="width: 10em; height: 10em" />
+        <div class="row">
+            @foreach (var category in Model.Categories)
+            {
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <h2><span class="label label-warnings"><a href="@Url.Action("Details", "Categories", new { id = category.Id })" class="speacial-a">@category.Name</a></span></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            @category.Description
+                            <a href="@Url.Action("Details", "Categories", new { id = category.Id})"><img class="imageGalery img-rounded" src="@Url.Content(@category.ImagePath)" style="width: 10em; height: 10em" /></a>
+                        </div>
+                    </div>
+                </div>}
         </div>
 
-    }
+    </div>
 </div>
 

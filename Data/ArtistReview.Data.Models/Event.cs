@@ -34,5 +34,6 @@
         public string UserId { get; set; }
 
         public virtual ApplicationUser User { get; set; }
+        public object Images { get; set; }
     }
 }

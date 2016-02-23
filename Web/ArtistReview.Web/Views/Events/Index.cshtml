@@ -1,0 +1,29 @@
+﻿@model ArtistReview.Web.ViewModels.Events.EventsViewModel
+@{
+    ViewBag.Title = "Index";
+}
+<div class="jumbotron">
+    <div class="row text-center">
+        <div class="well">
+            <h2>Events</h2>
+        </div>
+        <div class="row">
+            @foreach (var events in Model.Events)
+            {
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <h2><span class="label label-warnings"><a href="@Url.Action("Details", "Events", new { id = events.Id })" class="speacial-a">@events.Name</a></span></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            @events.Description
+                            <a href="@Url.Action("Details", "Events", new { id = events.Id})"><img class="imageGalery img-rounded" src="@Url.Content(@events.ImageUrl)" style="width: 10em; height: 10em" /></a>
+                        </div>
+                    </div>
+                </div>}
+        </div>
+
+    </div>
+</div>

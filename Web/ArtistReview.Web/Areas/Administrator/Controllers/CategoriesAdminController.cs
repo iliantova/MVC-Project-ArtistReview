@@ -11,11 +11,11 @@
     using Models.Category;
     using Services.Data;
 
-    public class CategoriesController : BaseController
+    public class CategoriesAdminController : BaseController
     {
         private readonly ICategoriesService categories;
 
-        public CategoriesController(ICategoriesService categories)
+        public CategoriesAdminController(ICategoriesService categories)
         {
             this.categories = categories;
         }

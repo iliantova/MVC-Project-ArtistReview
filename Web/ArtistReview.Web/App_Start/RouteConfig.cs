@@ -26,8 +26,9 @@
 
             routes.MapRoute(
               name: "Categories",
-              url: "{controller}/{action}/{id}",
-              defaults: new { controller = "Categories", action = "Index", id = UrlParameter.Optional });
+              url: "Categories/{action}/{id}",
+              defaults: new { controller = "Categories", action = "Index", id = UrlParameter.Optional },
+            namespaces: new[] { "ArtistReview.Web.Controllers" });
         }
     }
 }

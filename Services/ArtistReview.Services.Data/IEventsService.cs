@@ -12,5 +12,7 @@ namespace ArtistReview.Services.Data
         IQueryable<Event> GetAll();
 
         Event GetById(int id);
+
+        IQueryable<Event> GetByCategory(int id);
     }
 }

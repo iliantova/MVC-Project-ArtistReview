@@ -203,7 +203,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administrator\AdministratorAreaRegistration.cs" />
     <Compile Include="Areas\Administrator\Controllers\BaseController.cs" />
-    <Compile Include="Areas\Administrator\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\CategoriesAdminController.cs" />
     <Compile Include="Areas\Administrator\Models\Category\DetailsCategoryViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -227,6 +227,9 @@
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
     <Compile Include="ViewModels\Categories\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\Categories\CurrentCategoryViewModel.cs" />
+    <Compile Include="ViewModels\Events\DetailsEventViewModel.cs" />
+    <Compile Include="ViewModels\Events\EventsViewModel.cs" />
     <Compile Include="ViewModels\Profiles\DetailsProfileViewModel.cs" />
     <Compile Include="ViewModels\Home\IndexViewModel.cs" />
     <Compile Include="ViewModels\Categories\DetailsCategoryViewModel.cs" />
@@ -355,6 +358,7 @@
     <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
     <Content Include="Scripts\kendo.all.min.js.map" />
     <Content Include="Scripts\kendo.aspnetmvc.min.js.map" />
+    <Content Include="Views\Events\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -364,7 +368,6 @@
     <Folder Include="Content\KendoUI\images\" />
     <Folder Include="Content\KendoUI\textures\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\Events\" />
     <Folder Include="Views\Profiles\" />
   </ItemGroup>
   <ItemGroup>

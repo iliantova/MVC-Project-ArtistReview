@@ -19,6 +19,12 @@ namespace ArtistReview.Web.Areas.Administrator
                 "Administrator/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
+
+            context.MapRoute(
+             name: "Administrator_Categories",
+             url: "Administrator/{controller}/{action}/{id}",
+             defaults: new { action = "Index", id = UrlParameter.Optional },
+           namespaces: new[] { "ArtistReview.Web.Areas.Administrator.Controllers" });
         }
     }
 }

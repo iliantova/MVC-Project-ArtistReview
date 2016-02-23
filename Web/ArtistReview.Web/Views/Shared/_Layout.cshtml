@@ -27,10 +27,7 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li>
-						<a href="@Url.Action("Index", "Home", new { area=""})">
-							<span class="glyphicon glyphicon-th"></span>
-							Categories
-						</a>
+						@Html.ActionLink("Categories", "Index", "Categories")
 					</li>
 					<li>
 						<a href="@Url.Action("Index", "Home", new { area=""})">
@@ -39,7 +36,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="@Url.Action("Index", "Home", new { area=""})">
+						<a href="@Url.Action("Index", "Events", new { area=""})">
 							<span class="glyphicon glyphicon-eye-open"></span>
 							Events
 						</a>
@@ -47,7 +44,7 @@
 					@if (User.IsInRole("Admin"))
 					{
 						<li>
-							<a href="@Url.Action("Index", "Categories", new { area="Administrator"})">
+                            	<a href="@Url.Action("Index", "CategoriesAdmin", new { area="Administrator"})">
 								<span class="glyphicon glyphicon-wrench"></span>
 								Manage Categories
 							</a>
