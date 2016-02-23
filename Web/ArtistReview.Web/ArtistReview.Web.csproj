@@ -295,7 +295,7 @@
     <Content Include="Content\KendoUI\kendo.common.min.css.map" />
     <Content Include="Content\KendoUI\kendo.default.min.css.map" />
     <Content Include="Areas\Administrator\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Administrator\Views\Categories\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\CategoriesAdmin\Index.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -359,6 +359,10 @@
     <Content Include="Scripts\kendo.all.min.js.map" />
     <Content Include="Scripts\kendo.aspnetmvc.min.js.map" />
     <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\Profiles\Index.cshtml" />
+    <Content Include="Views\Events\Details.cshtml" />
+    <Content Include="Views\Profiles\Details.cshtml" />
+    <Content Include="Views\Shared\_SearchPatial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -368,7 +372,6 @@
     <Folder Include="Content\KendoUI\images\" />
     <Folder Include="Content\KendoUI\textures\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\Profiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

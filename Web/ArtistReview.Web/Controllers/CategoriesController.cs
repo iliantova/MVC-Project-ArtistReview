@@ -7,6 +7,7 @@
     using ArtistReview.Web.ViewModels.Categories;
     using ViewModels.Profiles;
     using ViewModels.Events;
+    using System;
     public class CategoriesController : BaseController
     {
         private readonly ICategoriesService categories;
@@ -41,9 +42,14 @@
         }
 
         // GET: Categories
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
             var category = this.categories.GetAll().To<DetailsCategoryViewModel>().ToList();
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                category = category.Where(s => s.Name.ToLower().Contains(searchString.ToLower())).ToList();
+            }
             var viewModel = new CategoryViewModel
             {
                 Categories = category,

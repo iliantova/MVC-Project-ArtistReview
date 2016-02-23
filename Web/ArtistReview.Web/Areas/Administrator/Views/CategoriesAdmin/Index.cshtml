@@ -10,7 +10,7 @@
 		.Columns(columns =>
 		{
 			columns.Bound(col => col.ImagePath).ClientTemplate("<img src=#: ImagePath # />").Width(150);
-			columns.Bound(col => col.Name).ClientTemplate("<a href='" + @Url.Action("Details", "Categories", new { area = "Administrator" }) + "/#= Id #'" + ">#= Name #</a>");
+			columns.Bound(col => col.Name).ClientTemplate("<a href='" + @Url.Action("Details", "CategoriesAdmin", new { area = "Administrator" }) + "/#= Id #'" + ">#= Name #</a>");
 			columns.Bound(col => col.Description);
 			columns.Command(command => { command.Edit(); command.Destroy(); });
 		})
@@ -24,7 +24,7 @@
 		.Ajax()
 		.PageSize(3)
 		.Model(model => model.Id(c => c.Id))
-		.Read(read => read.Action("Read", "Categories", new { area = "Administrator"}))
+		.Read(read => read.Action("Read", "CategoriesAdmin", new { area = "Administrator"}))
 		.Create(create => create.Action("Create", "Categories", new { area = "Administrator" }))
 		.Update(update => update.Action("Update", "Categories", new { area = "Administrator" }))
 		.Destroy(destroy => destroy.Action("Destroy", "Categories", new { area = "Administrator" }))

@@ -20,7 +20,7 @@
 
         public IQueryable<Event> GetAll()
         {
-            return events.All();
+            return events.All().OrderBy(x => x.BeginEvent);
         }
 
         public Event GetById(int id)

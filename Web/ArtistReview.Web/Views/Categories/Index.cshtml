@@ -8,7 +8,8 @@
         <div class="well">
             <h2>Categories</h2>
         </div>
-        <div class="row">
+        @Html.Partial("_SearchPatial")
+         <div class="row">
             @foreach (var category in Model.Categories)
             {
                 <div class="col-md-3">

@@ -23,7 +23,17 @@
 
         public int Id { get; set; }
 
-        public string UserName { get; set; }
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
 
         public string ImageUrl { get; set; }
 
@@ -34,7 +44,9 @@
             configuration.CreateMap<Data.Models.Profile, DetailsProfileViewModel>()
                 .ForMember(m => m.CategoryName, opt => opt.MapFrom(t => t.Category.Name));
             configuration.CreateMap<Data.Models.Profile, DetailsProfileViewModel>()
-                .ForMember(m => m.UserName, opt => opt.MapFrom(t => t.User.UserName));
+                .ForMember(m => m.FirstName, opt => opt.MapFrom(t => t.User.FirstName));
+            configuration.CreateMap<Data.Models.Profile, DetailsProfileViewModel>()
+               .ForMember(m => m.LastName, opt => opt.MapFrom(t => t.User.LastName));
             configuration.CreateMap<Data.Models.Profile, DetailsProfileViewModel>()
               .ForMember(m => m.ImageUrl, opt => opt.MapFrom(t => t.Images.FirstOrDefault().ImagePath));
         }
