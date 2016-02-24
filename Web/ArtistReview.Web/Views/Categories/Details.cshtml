@@ -1,73 +1,72 @@
 ﻿@model ArtistReview.Web.ViewModels.Categories.CurrentCategoryViewModel
-
 @{
     ViewBag.Title = "Details";
 }
 <div class="row well">
-	<div class="col-md-2">
-		<img class="imageGalery" src="@Url.Content(Model.Category.ImagePath)" style="width: 10em; height: 10em" />
-	</div>
-	<div class="col-md-6">
-		<div class="row">
-			@Html.DisplayNameFor(model => model.Category.Name)
-		</div>
-		<div class="row">
-			@Html.DisplayFor(model => model.Category.Name)
-		</div>
-		<div class="row">
-			@Html.DisplayNameFor(model => model.Category.Description)
-		</div>
-		<div class="row">
-			@Html.DisplayFor(model => model.Category.Description)
-		</div>
-	</div>
-</div>
-<div class="jumbotron">
-    <div class="row text-center">
-        <div class="well">
-            <h2>Profiles</h2>
+    <div class="col-md-2">
+        <div class="row">
+            <img class="imageGalery img-rounded" src="@Url.Content(Model.Category.ImagePath)" style="width: 10em; height: 10em" />
+        </div>
+        <div class="row">
+            @Html.DisplayNameFor(model => model.Category.Name)
+        </div>
+        <div class="row">
+            @Html.DisplayFor(model => model.Category.Name)
+        </div>
+        <br />
+        <div class="row">
+            @Html.DisplayNameFor(model => model.Category.Description)
+        </div>
+        <div class="row">
+            @Html.DisplayFor(model => model.Category.Description)
         </div>
     </div>
-    <div class="row">
-        @foreach (var profile in Model.Profiles)
-        {
-            <div class="col-md-3">
-                <div class="row">
-                    <div class="col-md-2">
-                        <h2><span class="label label-warnings"><a href="@Url.Action("Details", "Profiles", new { id = profile.Id })" class="speacial-a">@profile.UserName</a></span></h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-2">
-                        @profile.Description
-                        <a href="@Url.Action("Details", "Profiles", new { id = profile.Id})"><img class="imageGalery img-rounded" src="@Url.Content(@profile.ImageUrl)" style="width: 10em; height: 10em" /></a>
-                    </div>
-                </div>
-            </div>}
-    </div>
-</div>
 
-<div class="jumbotron">
-    <div class="well text-center">
-        <h2>Events</h2>
-    </div>
-
-    <div class="row">
-        @foreach (var events in Model.Events)
-        {
-            <div class="col-md-3">
+    <div class="col-md-offset-1 col-md-9">
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#profile" data-toggle="tab">Profiles</a></li>
+            <li role="presentation"><a href="#events" data-toggle="tab">Events</a></li>
+        </ul>
+        <div class="tab-content" style="padding-bottom: 9px; border-bottom: 1px solid #ddd;">
+            <div class="tab-pane active" id="profile">
                 <div class="row">
-                    <div class="col-md-2">
-                        <h2><span class="label label-warnings"><a href="@Url.Action("Details", "Events", new { id = events.Id })" class="speacial-a">@events.Name </a></span></h2>
-                        <h3><label class="label label-info">@events.BeginEvent</label></h3>
+                    @foreach (var profile in Model.Profiles)
+                    {
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div>
+                                    <h2><span class="label label-warnings"><a href="@Url.Action("Details", "Profiles", new { id = profile.Id })" class="speacial-a">@profile.FullName</a></span></h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    @profile.Description
+                                    <a href="@Url.Action("Details", "Profiles", new { id = profile.Id})"><img class="imageGalery img-rounded" src="@Url.Content(@profile.ImageUrl)" style="width: 10em; height: 10em" /></a>
+                                </div>
+                            </div>
+                        </div>}
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-2">
-                    @events.Description
-                    <a href="@Url.Action("Details", "Events", new { id = events.Id})"><img class="imageGalery img-rounded" src="@Url.Content(@events.ImageUrl)" style="width: 10em; height: 10em" /></a>
+            <div class="tab-pane" id="events">
+                <div class="row">
+                    @foreach (var events in Model.Events)
+                    {
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div>
+                                    <h2><span class="label label-warnings"><a href="@Url.Action("Details", "Events", new { id = events.Id })" class="speacial-a">@events.Name </a></span></h2>
+                                    <h3><label class="label label-info">@events.BeginEvent</label></h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    @events.Description
+                                    <a href="@Url.Action("Details", "Events", new { id = events.Id})"><img class="imageGalery img-rounded" src="@Url.Content(@events.ImageUrl)" style="width: 10em; height: 10em" /></a>
+                                </div>
+                            </div>
+                        </div>}
                 </div>
             </div>
-        </div>}
+        </div>
     </div>
 </div>

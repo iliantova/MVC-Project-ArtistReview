@@ -1,5 +1,7 @@
 ﻿namespace ArtistReview.Web.ViewModels.Profiles
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Linq;
     using ArtistReview.Data.Models;
     using ArtistReview.Web.Infrastructure.Mapping;
@@ -17,6 +19,7 @@
 
         public int CategoryId { get; set; }
 
+        [Display(Name = "Category:")]
         public string CategoryName { get; set; }
 
         public virtual Category Category { get; set; }
@@ -31,9 +34,11 @@
         {
             get
             {
-                return FirstName + " " + LastName;
+                return this.FirstName + " " + this.LastName;
             }
         }
+
+        public virtual ICollection<Image> Images { get; set; }
 
         public string ImageUrl { get; set; }
 

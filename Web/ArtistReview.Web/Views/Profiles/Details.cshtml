@@ -1,74 +1,48 @@
 ﻿@model ArtistReview.Web.ViewModels.Profiles.DetailsProfileViewModel
-
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
-
-<div>
-    <h4>DetailsProfileViewModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Site)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Site)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FaceBook)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FaceBook)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Contact)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Contact)
-        </dd>
-
-         <dt>
-            @Html.DisplayNameFor(model => model.CategoryName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CategoryName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FullName)
-        </dt>
-        s
-        <dd>
+<div class="row well">
+    <div class="col-md-2">
+        <div class="row">
+            <img class="imageGalery img-rounded" src="@Url.Content(Model.ImageUrl)" style="width: 10em; height: 10em" />
+        </div>
+        <div class="row">
             @Html.DisplayFor(model => model.FullName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ImageUrl)
-        </dd>
-
-    </dl>
+        </div>
+        <br />
+        <div class="row">
+            @Html.DisplayNameFor(model => model.CategoryName)
+            <a href="@Url.Action("Details", "Categories", new { id = Model.CategoryId })" class="speacial-a">@Model.CategoryName</a>
+        </div>
+        <div class="row">
+            <a href="@Model.Site">Web site</a>
+        </div>
+        <div class="row">
+            <a href="@Model.FaceBook">Facebook</a>
+        </div>
+        <div class="row">
+            @Html.DisplayNameFor(model => model.Contact)
+            @Html.DisplayFor(model => model.Contact)
+        </div>
+    </div>
+    <div class="col-md-offset-1 col-md-8">
+        <div class="row well">
+            @Html.DisplayFor(model => model.Description)
+        </div>
+        <div class="row well">
+            @foreach (var image in Model.Images)
+            {
+                <div class="col-md-4">
+                    <img class="imageGalery img-rounded" src="@Url.Content(image.ImagePath)" style="width: 10em; height: 10em" />
+                </div>}
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div class="row">
+    @if (@User.Identity.IsAuthenticated && !@User.IsInRole("Admin"))
+    {
+        <a href="@Url.Action("Edit", "Events", new { id = Model.Id })" class="btn btn-warning">Edit</a>
+    }
+    <a href="@Url.Action("Index", "Profiles", new { area = ""})" class="btn btn-info">Back</a>
+</div>

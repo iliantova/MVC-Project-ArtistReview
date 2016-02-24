@@ -213,6 +213,8 @@
     <Compile Include="Controllers\JokesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="App_Start\GlimpseSecurityPolicy.cs" />
+    <Compile Include="Controllers\PagingCategoryController.cs" />
+    <Compile Include="Controllers\PagingProfileController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -228,6 +230,7 @@
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
     <Compile Include="ViewModels\Categories\CategoryViewModel.cs" />
     <Compile Include="ViewModels\Categories\CurrentCategoryViewModel.cs" />
+    <Compile Include="ViewModels\Categories\PagingCategoryViewModel.cs" />
     <Compile Include="ViewModels\Events\DetailsEventViewModel.cs" />
     <Compile Include="ViewModels\Events\EventsViewModel.cs" />
     <Compile Include="ViewModels\Profiles\DetailsProfileViewModel.cs" />
@@ -244,6 +247,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\Profiles\PaginProfileViewModel.cs" />
     <Compile Include="ViewModels\Profiles\ProfileViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -363,6 +367,8 @@
     <Content Include="Views\Events\Details.cshtml" />
     <Content Include="Views\Profiles\Details.cshtml" />
     <Content Include="Views\Shared\_SearchPatial.cshtml" />
+    <Content Include="Views\PagingProfile\Index.cshtml" />
+    <Content Include="Views\PagingCategory\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

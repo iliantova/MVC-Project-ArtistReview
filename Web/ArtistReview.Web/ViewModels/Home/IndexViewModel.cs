@@ -6,10 +6,8 @@
 
     public class IndexViewModel
     {
-        public IEnumerable<JokeViewModel> Jokes { get; set; }
+        public IEnumerable<PaginProfileViewModel> Profiles { get; set; }
 
-        public IEnumerable<DetailsProfileViewModel> Profiles { get; set; }
-
-        public IEnumerable<DetailsCategoryViewModel> Categories { get; set; }
+        public IEnumerable<PagingCategoryViewModel> Categories { get; set; }
     }
 }

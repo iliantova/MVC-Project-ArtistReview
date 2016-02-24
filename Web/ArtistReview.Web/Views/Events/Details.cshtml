@@ -1,73 +1,51 @@
 ﻿@model ArtistReview.Web.ViewModels.Events.DetailsEventViewModel
-
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
-
-<div>
-    <h4>DetailsEventViewModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
+<div class="row well">
+    <div class="col-md-2">
+        <div class="row">
+            <img class="imageGalery img-rounded" src="@Url.Content(Model.ImageUrl)" style="width: 10em; height: 10em" />
+        </div>
+        <div class="row">
             @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
+        </div>
+        <br />
+        <div class="row">
             @Html.DisplayNameFor(model => model.CategoryName)
-        </dt>
-
-        <dd>
+        </div>
+        <div class="row">
             @Html.DisplayFor(model => model.CategoryName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
-
-        <dd>
-            <img class="imageGalery img-rounded" src=@Html.DisplayFor(model => model.ImageUrl) style="width: 10em; height: 10em" />
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BeginEvent)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BeginEvent)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EndEvent)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EndEvent)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UserName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UserName)
-        </dd>
-    </dl>
+        </div>
+    </div>
+    <div class="col-md-offset-1 col-md-8">
+        <div class="row well">
+            @Html.DisplayFor(model => model.Description)
+        </div>
+        <div class="row well">
+            <div class="col-md-6">
+                <div class="row">
+                    @Html.DisplayNameFor(model => model.BeginEvent)
+                </div>
+                <div class="row">
+                    @Html.DisplayFor(model => model.BeginEvent)
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    @Html.DisplayNameFor(model => model.EndEvent)
+                </div>
+                <div class="row">
+                    @Html.DisplayFor(model => model.EndEvent)
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div class="row">
+    @if (@User.Identity.IsAuthenticated && !@User.IsInRole("Admin"))
+    {
+        <a href="@Url.Action("Edit", "Events", new { id = Model.Id })" class="btn btn-warning">Edit</a>
+    }
+    <a href="@Url.Action("Index", "Events", new { area = ""})" class="btn btn-info">Back</a>
+</div>

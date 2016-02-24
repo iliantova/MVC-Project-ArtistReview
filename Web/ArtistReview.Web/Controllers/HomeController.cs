@@ -23,24 +23,11 @@
             this.profiles = profiles;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int pageIdProfile = 1, int pageIdCategory = 1)
         {
-            var profiles = this.profiles.GetAll().To<DetailsProfileViewModel>().ToList();
-
-            var jokes = this.jokes.GetRandomJokes(3).To<JokeViewModel>().ToList();
-            var categories =
-                this.Cache.Get(
-                    "categories",
-                    () => this.jokeCategories.GetAll().To<DetailsCategoryViewModel>().ToList(),
-                    30 * 60);
-            var viewModel = new IndexViewModel
-            {
-                Jokes = jokes,
-                Categories = categories,
-                Profiles = profiles
-            };
-
-            return this.View(viewModel);
+            ViewData["PageProfil"] = pageIdProfile;
+            ViewData["PageCategory"] = pageIdCategory;
+            return this.View();
         }
     }
 }
